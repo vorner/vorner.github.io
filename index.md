@@ -1,3 +1,3 @@
 # Vorner's random stuff
 
-Something will appear soon. I hope.
+* [Rust 2018](rust-2018.md)
