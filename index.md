@@ -5,16 +5,19 @@
 ## About me
 
 * An average European, living in Prague.
-* I'm a programmer (sometimes a computer magician, working with all colours of
+* A programmer (sometimes a computer magician, working with all colours of
   magic, including black).
-* I like climbing. Maybe I'll write a post comparing Rust and climbing one day.
-* And yes, self-appointed member of the Rust Evangelism Strike Force.
+* A climber. Maybe I'll write a post comparing Rust to climbing one day.
 * I suffer from chronic lack of free time.
+* Huge fan of the „Ha ha only serious“ attitude.
+* And yes, self-appointed member of the Rust Evangelism Strike Force.
 
 ## About the pages
 
-These were thrown together quite fast (see above). I also do have my [personal
-web pages](https://vorner.cz/en), but they are really outdated and fell into
-disrepair. You can have a look, if you really like a retro design.
+These were thrown together quite fast (see above to know why). I also do have my
+[personal web pages](https://vorner.cz/en), but they are really outdated and
+fell into disrepair. You can have a look, if you really like a retro design. So
+I decided not to use them for now, before I get around to doing something with
+them.
 
-This is here mostly for the technical stuff, like Rust.
+This is here mostly for the technical stuff (like Rust).
