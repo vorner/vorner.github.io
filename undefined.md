@@ -17,12 +17,15 @@ undefinedness:
   concrete implementation (combination of the target machine, compiler,
   ...). Things like the size of a pointer is different between platforms, but
   stays the same through the program.
-* Unspecified ‒ it still acts somehow sane. `int x = 0; printf("%d\n", ++x +
-  ++x);` might turn out to be either 3 or 4, because the compiler is free to
-  either increment `x` twice and than take its value, or increment once, take
-  the first value, then increment second time and take the value again. That's
-  annoying, but at least we get *a* number, not some kind of poisoned bomb that
-  explodes once touched.
+* Unspecified ‒ it still acts somehow sane. For example, the value of „ordinary“
+  global variables inside a signal handler is unspecified. But the variable
+  still has *a* value ‒ reading an `int` global variable there is safe in the
+  manner that the program won't explode while doing so.
+
+*Note: the previous version of the text stated that one such unspecified
+behavior is `++ x + ++ x`. That is technically correct, but this is **also**
+undefined behavior (by definition, every undefined behavior is also
+unspecified).*
 
 ## Undefined behavior
 
@@ -32,7 +35,7 @@ dimensions and such 🐙.
 
 This usually happens because the standard (or something else) says some
 situation can never happen, but this assumption is broken by the code. Like,
-integers never live on even addresses (since there's actually no *legal* way to
+integers never live on odd addresses (since there's actually no *legal* way to
 put them there in the first place, so it makes no sense to prescribe what
 happens if one gets there nevertheless). Or dereferencing an invalid pointer.
 Indexing after the array's end. *Creating* (not even using) a pointer further
