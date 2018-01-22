@@ -32,7 +32,7 @@ done. But Rust is not the only complex language because of that. Look at C++ ‒
 Rust at least keeps the complexity somewhat sane.
 
 However, this is difficulty that anyone trying to enter the low-level world of
-system programming should expect. All these details about where a memory is
+system programming should expect. All these details about where data is
 allocated, how much memory it takes, that were not important in other languages
 suddenly surface. But that's because you need the control, isn't it? Otherwise,
 you *would* use the simple language, as it would be sufficient.
