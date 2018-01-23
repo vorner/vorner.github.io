@@ -88,19 +88,19 @@ compile. Strict typing makes you think about the relations in your program. It
 checks that you don't get data races. It will tell you if you try to free some
 memory too soon.
 
-This is a good thing. It makes sure your programs are better than of the
-competition (if you manage to compile them, of course), that they are less
+This is a good thing. It makes sure your programs are better than those of the
+competition (if you manage to compile them, of course), as they are less
 likely to crash and burn or something even worse. It makes the language easier
 to use (imagine if you had to actively *think* about *all* these things instead
 of relying on the compiler to check it for you ‒ welcome to C).
 
 But at the same time, it makes learning it a bit harder, because it insists on
-you learning everything needed to write a good program. An average is not
+you learning everything needed to write a good program. An average attempt is not
 acceptable.
 
 If you just learned about how to write a function, it doesn't feel very
-encouraging when the compiler starts to talk about data races (what are these,
-anyway, you ask at the time). A program that is subtly wrong would be fine at
+encouraging when the compiler starts to talk about data races ("What are these,
+anyway?", you ask at the time). A program that is subtly wrong would be fine at
 that time ‒ at least it would run.
 
 But in the long run this makes you a much better programmer. Even in other
@@ -132,7 +132,7 @@ What should a beginner in Rust expect:
   tenth) attempt.
 * Having to understand a lot of problems not known to exist before.
 * Satisfaction after discovering how much can be learned with a very strict
-  teacher and probably enjoyment from the learning itself.
+  teacher (and probably enjoyment from the learning itself).
 * Find the language different and interesting.
 * Becoming a better programmer, even in other languages (for example, ownership
   is just formalisation what most people do in languages with manual memory
