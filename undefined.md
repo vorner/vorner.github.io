@@ -46,7 +46,7 @@ Let's see a bit of code:
 ```C
 char c[4];
 memcpy(c, "hello", strlen("hello"));
-printf("%s"\n, c);
+printf("%s\n", c);
 ```
 
 If this is ever executed (don't do that, you might regret it!), it can do any
