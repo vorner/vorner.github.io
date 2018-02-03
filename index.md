@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Async benchmarks](async-bench.md)
 * [Why is rust difficult?](difficult.md)
 * [About undefined behavior](undefined.md)
 * [Rust 2018](rust-2018.md)
