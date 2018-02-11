@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Corona: get the async out of the way](corona-04.md)
 * [Async benchmarks](async-bench.md)
 * [Why is rust difficult?](difficult.md)
 * [About undefined behavior](undefined.md)
