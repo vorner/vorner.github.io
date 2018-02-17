@@ -1,5 +1,7 @@
 ---
 date: 2018-01-22
+author: "Michal 'vorner' Vaner"
+layout: post
 category: rust
 ---
 # About the undefined behavior

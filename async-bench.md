@@ -1,5 +1,7 @@
 ---
 date: 2018-02-03
+author: "Michal 'vorner' Vaner"
+layout: post
 category: rust
 ---
 # Benchmark of different Async approaches in Rust

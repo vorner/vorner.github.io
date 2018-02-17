@@ -1,5 +1,7 @@
 ---
 date: 2018-02-11
+author: "Michal 'vorner' Vaner"
+layout: post
 category: rust
 ---
 # Corona: If you want to get async out out of your way

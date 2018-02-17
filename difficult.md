@@ -1,5 +1,7 @@
 ---
 date: 2018-01-21
+author: "Michal 'vorner' Vaner"
+layout: post
 category: rust
 ---
 # Why is Rust difficult?
