@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2018-02-11
 category: rust
 ---
