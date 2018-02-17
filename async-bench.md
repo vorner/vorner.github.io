@@ -1,3 +1,8 @@
+---
+layout: post
+date: 2018-02-03
+category: rust
+---
 # Benchmark of different Async approaches in Rust
 
 The story about Rust's async is still a bit in flux. There's a bunch of

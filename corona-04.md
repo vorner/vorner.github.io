@@ -1,3 +1,8 @@
+---
+layout: post
+date: 2018-02-11
+category: rust
+---
 # Corona: If you want to get async out out of your way
 
 For some time now I develop a Rust library for asynchronous programming with

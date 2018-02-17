@@ -1,3 +1,8 @@
+---
+layout: post
+date: 2018-01-21
+category: rust
+---
 # Why is Rust difficult?
 
 Rust is considered difficult to learn by many people. Indeed, when I learned it,

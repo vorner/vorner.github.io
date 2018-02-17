@@ -1,3 +1,8 @@
+---
+layout: post
+date: 2018-01-22
+category: rust
+---
 # About the undefined behavior
 
 One hears a lot about the dreaded Undefined Behavior in programming. It's a big
