@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Should you learn Rust?](_posts/2018-03-11-Should-you-learn-rust.md)
 * [Corona: get the async out of the way](corona-04.md)
 * [Async benchmarks](async-bench.md)
 * [Why is rust difficult?](difficult.md)
