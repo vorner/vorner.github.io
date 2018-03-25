@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Atomics](_posts/2018-03-25-Atomics.md)
 * [Should you learn Rust?](_posts/2018-03-11-Should-you-learn-rust.md)
 * [Corona: get the async out of the way](corona-04.md)
 * [Async benchmarks](async-bench.md)
