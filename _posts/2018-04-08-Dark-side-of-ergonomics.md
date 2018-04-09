@@ -104,12 +104,12 @@ up as a result of the mess of a state you left when the exception flew by. I
 don't even talk about the magic *the compiler* needs to do behind the scenes to
 make the RAII guards work.
 
-And while C++ has the `nothrow` keyword, that can annotate a function or method,
+And while C++ has the `noexcept` keyword, that can annotate a function or method,
 it is virtually useless. It doesn't check at compile time the function doesn't
 trow. It just turns every exception that would be thrown into an abort of the
-program at runtime. Furthermore, there's no indication of throw/nothrow
+program at runtime. Furthermore, there's no indication of except/noexcept
 semantics on the caller side and removing the keyword from the function's
-signature won't make all the places that rely on the nothrow semantics not
+signature won't make all the places that rely on the noexcept semantics not
 compile.
 
 Compare it with Rust and it's `?` operator. Yes, you have to explicitly
@@ -162,14 +162,16 @@ public:
 	operator bool() const {
 		return value;
 	}
-	bool operator ==(const Token &other) {
+	bool operator ==(const Token &other) const {
 		return value == other.value;
 	}
-	bool operator !=(const Token &other) {
+	bool operator !=(const Token &other) const {
 		return !(*this == other);
 	}
 };
 ```
+
+(edited to fix trivial compilation errors)
 
 What do you think this bit of code will do?
 
