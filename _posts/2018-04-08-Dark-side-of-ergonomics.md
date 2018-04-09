@@ -106,7 +106,7 @@ make the RAII guards work.
 
 And while C++ has the `noexcept` keyword, that can annotate a function or method,
 it is virtually useless. It doesn't check at compile time the function doesn't
-trow. It just turns every exception that would be thrown into an abort of the
+throw. It just turns every exception that would be thrown into an abort of the
 program at runtime. Furthermore, there's no indication of except/noexcept
 semantics on the caller side and removing the keyword from the function's
 signature won't make all the places that rely on the noexcept semantics not
@@ -130,7 +130,7 @@ never supposed to happen“.
 
 Automatic type conversions make programmers' lives easier by not forcing them to
 write type-casting, right? No stupid `.into()` anywhere. Or so the C++ committee
-tough so long ago (it introduced the `explicit` keyword since then ‒ funny how
+thought so long ago (it introduced the `explicit` keyword since then ‒ funny how
 many things can be „solved“ by adding yet another keyword nobody learns to use).
 
 This one is quite recent experience for me. This prolonged one of my bug-hunts
@@ -178,7 +178,7 @@ What do you think this bit of code will do?
 ```cpp
 const Token tok1 = getUniqueToken(), tok2 = getUniqueToken();
 if (tok1 != tok2) {
-	std::cout << tok1 << "!=" tok2 << std::endl;
+	std::cout << tok1 << "!=" << tok2 << std::endl;
 }
 ```
 
