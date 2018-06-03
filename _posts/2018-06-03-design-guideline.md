@@ -1,233 +1,229 @@
-# Some personal design guidelines
+# Design guidelines: General principles and project statement
 
 There were some heated discussions in Rust community as of late. During that
-discussions, I argued that some guidelines for RFC authors would improve both on
-the results as well as the discussions and I promised to give it a try.
+discussions, I argued that some best practices for RFC authors would improve
+both on the results as well as the discussions and I promised to give it a try.
 
-However, as not being an RFC author myself (a suggestion to include
-stabilization FCPs in TWiR doesn't really count), it is quite a hard position.
-Therefore, I decided to give it a more general look ‒ RFC is just a special case
-of something I do very often. Design work. So this post can be seen as an
-attempt to put words to what works for me and I'll be glad if it can grow into
-some more general guidelines ‒ Rust specific or not. If you want to offer a
-helping hand building something (not sure what *exactly* yet), you can contact
-me on vorner@vorner.cz, we can then agree on some way of cooperation. There are
-guides for [learning
-Rust](https://doc.rust-lang.org/book/second-edition/index.html), on writing
-[unsafe Rust](https://doc.rust-lang.org/nightly/nomicon/), a [guide for hacking
-on the compiler itself](https://rust-lang-nursery.github.io/rustc-guide/). But
-having a good design is much more important than knowing design patterns or
-syntax tricks. Yet, there's no guide for that (or, no Rust specific one).
+However, I'm not an RFC author myself (a suggestion to include stabilization
+FPCs in TWiR doesn't really count). Therefore, my authority to write about how a
+good RFC looks like is severely limited. So I thought I'll write a blog series
+about designing things. I do quite a lot of that and RFC is just a special case
+of design.
 
-As with anything, this writeup is from my personal view. This is a collection of
-things I've learned over the Internet, several books and practice ‒ I can't
-claim much originality here. What works for me doesn't have to work for you.
-And as with any guidelines, it is also important to know when to break them. And
-I also often fail to follow them.
+In the long term, I'd like to consolidate the blog posts to something more.
+There's a lot of learning resources about Rust:
+* [The Rust Book](https://doc.rust-lang.org/book/second-edition/index.html).
+* [The Rustonomicon](https://doc.rust-lang.org/nightly/nomicon/).
+* [Rustc guide](https://rust-lang-nursery.github.io/rustc-guide/) for hacking on
+  the compiler itself.
+* A lot of others I forgot to list.
 
-Also, there's a lot of non-technical stuff around design. Emotions.
-Misunderstandings. Politics. I will not try to tell you how to win politic
-fights. I'll try to help how to avoid them. I'll assume your goal is to have a
-good solution to a problem, not gaining power in corporate struggles. It's
-harder to argue against well-stated facts just based on politics.
+But there's not much on design ‒ on what you do *before* you start writing the
+code. That phase is probably more important than understanding some
+syntactic tricks.
 
-## General attitudes
+So I'd like this into grow to some kind guide (I don't know *exactly* what kind
+yet). But I'd like input from other people on this. If you are interested in
+helping out, contact me on vorner@vorner.cz ‒ we can talk about some form this
+could have and how to go about it.
 
-While the techniques described here work well enough if you work alone, they
-bring much more benefit when in larger group of people. These allow to stay on
-track, minimize needless battering and save time.
+For now, I have some of my own personal observations what worked for me. It is a
+collection of things I learned from the Internet, several books and practice (I
+can't claim much originality here). And what works for me doesn't have to work
+for you. If you have something that works better ‒ well, see the above
+paragraph. Also, as with any guidelines, it is appropriate to go against them
+from time to time. Use your own common sense. And it is certainly not a silver
+bullet ‒ it might help you improve, but following it isn't a silver bullet to a
+good design.
 
-So, few general rules to help with that:
+## General principles and attitudes
 
-* Optimize for reading, not writing. By writing a proposal and presenting it,
-  you ask a lot of people to invest their time into reading it, understanding it
-  and thinking about it. It saves time overall if you can be clear and to the
-  point. And people will invest more of their time into the thinking part if
-  they save on the previous two and that's what you want.
-* Try to avoid personal attachment to any part of the solution. What you strive
-  for is a *good* solution, not necessarily *your* solution. Your solution is a
-  starting point. This involves a little bit of cheating subconsciousness, but
-  in general, things like writing in plural („our solution should“, instead of
-  „my solution should“) helps all sides more to work as a team and together
-  instead of against of each other.
-* Don't force anyone to defend themselves or their (power) position, if you
-  don't have to. There's a big psychological difference between „Your solution
-  is piece of crap“ and „We should improve that solution, there are some
-  drawbacks to it“. The first one is a personal attack on the author, because
-  you lower their abilities in eyes of others and they have to defend the
-  solution even if they themselves see there are drawbacks. The latter is an
-  offer of help and opens future discussion.
-* Try to understand other people's problems. Ask them to explain, if they don't
-  make their point clear. Maybe they just misunderstood you, or maybe there's an
-  actual problem you didn't see or their needs are different. There may be a
-  genuine conflict in the needs, but even then, it's still solved in a much
-  easier way if you know what is being balanced against what.
+Oftentimes, there's a lot of non-technical stuff around design. Emotions.
+Misunderstandings. Politics. Usually, I try to avoid them as much as possible,
+but they are still there. My goals are usually to have a good solution to a
+problem, not gaining points in corporate power struggles. So, good design is as
+much about the technical aspects as about psychology, negotiations and keeping
+one's sanity.
+
+I'm often hard to argue with, both because I have naturally stubborn nature and
+because I usually give some thought to the design upfront. It takes good
+arguments to prove me wrong, but it can be done (and it is done quite often) and
+I actually welcome that. And I don't *like* arguing ‒ there are just some times
+where I'll do it because I believe it's worth it. I'll avoid it if I can.
+
+So, if you find yourself arguing with me, remember it may be understood as a
+form of respect in itself. And here are few tips how to do so. I try (and
+sometimes fail) to follow them myself.
+
+* Optimize for reading and understanding, not for writing. Whenever you write a
+  proposal, it'll be read by many more people. It saves time many times over for
+  them if you are clear in what you wrote. And it saves *your* time if you are
+  not misunderstood and you don't have to explain again. Misunderstanding is one
+  of the biggest cause of arguments, wars, bad designs and unhappiness. Of
+  course, similar things apply to designs discussed in person or in other
+  non-written forms.
+
+* Try to avoid personal attachment to your code, your genius solution, your
+  precious ideas. Remember that you ‒ that we all ‒ strive for a *good*
+  solution, not necessarily *your* solution. If your proposal gets replaced by a
+  better solution, your solution played a much needed role in that. It was an
+  ancestor to that good solution. Try to build a solution that is not merely
+  *yours* but the *team's*. It's good for the result, but also for feelings of
+  everyone, which is no less important.
+
+* Don't force anyone into a defensive position, unless you really have to.
+  People are much likely to agree with you if that doesn't include admitting
+  they are *wrong*. Better off, don't even *think* they are wrong. Allow them to
+  „keep their face“ (I'm not sure this is the correct translation). While the
+  factual difference between „Your idea is piece of crap“ and „We should improve
+  on that one“ is very little, the psychological difference is huge. The first
+  one *requires* the author of the idea to defend it even if the author *knows*
+  it is not good. The latter one is offer of help the author can accept with
+  grace and without losing „social points“. If you corner a wolf, it'll fight,
+  even when it would otherwise prefer not to.
+
+* Try to understand their points. People often assume you know specific things
+  so they don't mention them. They do a bad job of explaining themselves (I know
+  I do). Ask them to explain. Assume good intentions from them ‒ they often work
+  for the same team, same company, same goals. They have a different vision,
+  different needs. Maybe they misunderstood you and trying to understand them
+  will tell you that. Maybe they have a point. And even when it comes to worst
+  and you really have conflicting requirements, it's much easier to solve it
+  when you both know the other's situation. It also helps when you're the
+  „losing“ side (eg. when not all your needs are met) if you at least understand
+  why that happened and that your position was considered.
+
+* Be clear about your confidence level. Being confident helps persuade others.
+  But the goal is not to persuade others. The goal is to find a good solution.
+  People often are confident *and* wrong at the same time just to persuade
+  other people. If you just feel something, make sure you state it in a way
+  where people don't attach more importance than it deserves and it doesn't lead
+  the research in a dead end.
+
+* Try to be civil and polite. There's a big difference between British and
+  American English (at least as it is presented here, in central Europe ‒ so
+  that presentation might be wrong). Suppose you're on someone's lawn, of course
+  by accident. The British might say (calmly) something like „Excuse me, sir,
+  but you probably should not be here.“, while in America you're as likely to
+  hear „Get off my property!!“ (followed by a click of a gun being loaded).
+  While both will probably get the job of you leaving the property done, your
+  day will feel much better after the British way (and the owner's day likely as
+  well). That's not to say nobody's emotions ever get the better of them, so the
+  principle of robustness (be strict about what you produce and relaxed about
+  what you receive) is a good one here.
+
+* Don't expect it'll go your way every time or that it'll ever be smooth and
+  easy. It might, but it's better to expect less and have a positive surprise.
 
 ## Problem statement
 
-The first step should be understanding the problem being solved. If you don't
-know what you're trying to solve, you'll solve something else. Your solution
-won't work. You'll get suboptimal solution and you'll make the situation worse.
-Or you'll be running in circles, never being happy about your current idea.
+So, you're designing something. But first you need a clear idea what it is. This
+is where a problem statements is a very valuable tool. The [Rust RFC
+process](https://github.com/rust-lang/rfcs/blob/master/0000-template.md) asks to
+include a motivation and it is a good requirement. But I prefer problem
+statement over a simple motivation. While it is about the same thing, there's a
+different [framing](https://en.wikipedia.org/wiki/Framing_effect_(psychology)).
 
-Write down your problem, as clearly as possible. This will give you these
+In other words, you should have a very clear idea what *problem* you're solving.
+If it is a bug (something crashes, data on the output look plain wrong, …), then
+it's an easy one to state as a problem. But if it is a user feature, make sure
+to include not only the description of what the feature should do, but what the
+user might want to solve by that feature. In other words, not only „The word
+processor should be able to save the document.“, but „Users need to preserve
+their documents across restarts so they don't have to type them all over again
+and again. The word processor should be able to save the document.“ This example
+is a bit extreme (it is obvious why the word processor needs to be able to save
+documents), but oftentimes what feels obvious to you doesn't cross the minds of
+others at all.
+
+Be as concrete as possible, give examples, give demonstrations, include some
+gathered data if there are some. Avoid being too broad („The ultimate question
+of life, the universe and everything“).
+
+If you think everyone should already know what you talk about, because there
+were previous discussions about that thing, at least reference the discussions ‒
+people tend to assume that everything they have in front of their eyes is
+everything that exists regarding the topic and it doesn't cross their minds they
+*could* invest some of their time searching for the previous discussions.
+
+If you yourself don't have that problem, talk to someone who does (the user). If
+people complain about UX of your product, grab a random person, put the product
+into their hands and write down during which activity they cursed the most. Make
+sure you understand what their problem is, write it down and let them
+cross-check it. Ask them to show the problem to you, make a screenshot, … But
+know it's impossible to fix if everything you know is „It's broken“.
+
+I'd even argue that a good problem statement is the hardest part and also the
+most important part of the whole design process. Make sure to write the problem
+statement down, not only have a vague idea what it is. It'll give you these
 things:
 
-* By formulating the problem, you'll be forced to understand it first. This is
-  the rubber-duck effect. Sometimes, when you ask for help, you come up with a
-  solution just by describing your problem to someone. You don't really need the
-  other person there, but if talking to a real rubber duck feels silly, writing
-  it to a paper is good.
-* You'll not get derailed during the design process to solving something else,
-  because you have your written problem statement in front of your eyes. This
-  will give you focus. You'll not be investing your time in finding solutions to
-  imagined non-problems (in my experience there's no lack of real problems).
-* When presenting your solution to someone else, they'll know your motivation.
-  If they find problems with your solution, they can offer ways to fix it (or to
-  come up with a different solution) while still satisfying your needs. If you
-  present just the solution, they'll ask „Why“ and will not understand your
-  solution at all.
-* Having a concrete problem at hand, one that people can understand (or even
-  better, try the pain points of it themselves) opens doors in organizations.
-  Everyone knows more security or performance is a good thing, but nobody wants
-  to invest the resources in these abstract things. If you can point to a web
-  page that loads ages, or you can demonstrate how someone could figuratively
-  walk in through your front door and steal all the corporate know-how, you
-  don't get ask „Why?“, but „What do you need to fix that?“
-* It'll be easier to evaluate your solution once you come up with it. You can
-  verify if it helps. You'll see more clearly if the problem warrants such a
-  complex solution ‒ usually, the solution comes with a cost, but we get fixated
-  on solving it *no matter what*. When seeing that the problem is not so big,
-  after all, you can come up with a decision to let it be.
-* Include hard data if you have them. Do you have statistics how often the
-  problem happens? Or is there a way to gather them?
+* By formulating the problem, you'll be forced to understand the problem better.
+  This is the
+  [rubber-duck effect](https://en.wikipedia.org/wiki/Rubber_duck_debugging),
+  when the solution becomes obvious after you tried to ask for help and had to
+  explain the problem to someone else. Talking to rubber ducks may feel a bit
+  silly, but writing it down brings no questions about sanity (but keeping a
+  rubber duck on your work desk can't hurt, can it?).
 
-I believe clearly formulating the problem, in a way everyone can understand it,
-is about 70% of actually solving it. If what you have is *only* the problem
-statement, that is OK too. You've helped in solving it more than you know, now
-the only needed thing is someone with relevant experience or inspiration to read
-your problem statement and say „Sure, that's easy!“
+* You'll be less likely to get lost in a web of different solutions and end up
+  solving something subtly different in the end (something that wasn't a problem
+  to start with), ending up invested a lot of resources only to find out the
+  problem didn't go away. It'll give you focus.
 
-While you can go back during the process, you probably should not proceed
-further (explaining the solution, or even working on it) until your audience
-understands what needs to get solved and agree it needs to be solved.
+* You'll get much more support from other people if they know the problem. Maybe
+  they don't have the problem and don't ever understand there could be a problem
+  in the first place, unless you tell them exactly what is wrong. If you can
+  demonstrate the problem so they can feel the pain of it, all the better.
+  People should not be asking why you are presenting a solution. By the time you
+  do so, everyone should have accepted there's a problem to solve and understand
+  what it is (even if they don't *have* the problem, they still need to
+  understand *why* it is a problem). This also opens doors at organizational
+  structures. Everyone agrees that more performance is good, but won't invest
+  any resources in such an abstract concept. If you show the CEO (or whoever
+  else holds the money valves) how incredibly slowly a specific web page loads,
+  they're much likely to ask what you would need to fix that.
 
-Avoid overly broad or generic problem statements. Your problem is not „The
-answer to the ultimate question of life, the universe and everything“, don't
-state it so. If your product is hard to use, write down explicit scenarios where
-it feels hard to use. If you are already used to the product and don't see the
-problem, grab a random person, put the product into their hands and write down
-the intensity of their cursing and during which activity they cursed the most.
-If you can't pin-point a specific problem (not necessarily a single one), then
-maybe there's no problem at all.
+* It gives others opportunity to amend your solution, or to find better
+  alternatives. If they don't understand what you're trying to solve, they have
+  only the opportunity to either agree or disagree, which is frustrating both
+  for you and them. Without it, the discussion can hardly be constructive and
+  factual.
 
-## Coming up with a solution
+* It provides means to verifying the solution later on. You can check it will
+  (or that everyone thinks it will) solve the problem. You'll be able to compare
+  costs and benefits of the solution. Yes, we engineers have the unfortunate
+  tendency to get fixated on solving the problem *no matter what* and come up
+  with a solution that works, but is not adequate to the problem.
 
-There's no sure way to come up with a solution and you'll need an inspiration.
-However, there are some questions you can ask yourself that often help:
+* If you don't come up with a solution, you still can present the problem
+  statement to someone. Maybe they'll have the needed experience, or the
+  inspiration and say „Hey, why, that's easy!“. In such case, you still make it
+  possible for them to solve the problem and you get the solution you needed.
 
-* Is this problem similar to something I've solved before? Could I copy the
-  solution? Should I? Did it work previously, or should it be improved on?
-* Did someone else solve something similar?
-* Is there a way to cheat the problem somehow? For example, there's a lot of
-  cheating in 3D graphics ‒ only the side of object facing the user is rendered,
-  there are cheap ways to relief shadows by slightly moved additional texture,
-  etc, all just to gain some more performance.
-* Could I solve some subset of the problem?
-* Could I partition the problem into smaller pieces?
-* Could I find a solution that doesn't solve it, but makes it smaller (eg. the
-  page still loads slowly, but it's a bit better)? Or something that solves 90%
-  of cases where the problem arises (eg. caching).
+* In case you have trouble formulating what the problem is, it may be the case
+  there isn't a real problem in the first place and nothing needs to be solved.
+  Think about that possibility (and try to find a way to verify the theory).
 
-Some other ways to come up with ideas:
+While you can go back to this point during your next phases (because you
+experiment with something and it turns out the problem is slightly different,
+deeper, …), you should not skip it. By doing so, you risk going in circles,
+finding solution to a non-problem, arguing infinitely about if others like your
+solution or not or other undesirable things.
 
-* Take a shower or a walk. Let it rest over the weekend. Your subconsciousness
-  will work on it while you sleep, even if you don't concentrate on it.
-* Take your problem statement (not necessarily in written form) for lunch or to
-  a pub or a gym. Bounce ideas off each other. This'll generate mostly useless
-  insane stuff, but it may contain something to improve on.
-* Experiment with the things at hand. If you can do a 50%-prototype (eg one that
-  works in half of the cases), then you have some idea about the problem and
-  what it needs.
+Of course, the size of the problem and the solution also influences how much
+effort goes into this phase. Smaller problems deserve less attention.
 
-## Qualities of a good solution
+Oh, and avoid doing this *after* you have the solution. You're as likely to come
+up with some problem the solution solves, even if nobody was ever bothered by
+it.
 
-While not all problems have good solutions, or any solutions at all, it is good
-to know how a good solution looks like. Sometimes, using a „bad“ solution is
-what needs to be done, because the current time constraints don't allow
-implementing the good one, or because there's no good one, though.
+## Next issues
 
-* The solution feels obvious. The only question it raises is how it was possible
-  nobody came up with it sooner. This is similar to a sculptor that says he
-  didn't make the statue, that he only freed it out of the extra stone around.
-* People who didn't have the problem don't notice the solution being
-  implemented. The best solutions are invisible ‒ like gravity. It is
-  everywhere, but in general, you don't think about it or pay explicit attention
-  to it.
-* It is simple. It should be apparent there's no problem. Not just no apparent
-  problem.
-* There are no serious voices against it ‒ it doesn't have to make everyone
-  happy, but it shouldn't make anyone seriously unhappy.
-* The solution doesn't go against subconsciousness, it plays with it. This is
-  about how intuitive it is. It is also about naming things. A great example is
-  Rust's ownership model. Programmers are not used to it, but once they get used
-  to it, it feels perfectly natural. Your subconsciousness understands
-  ownership. It understands that if you take a cup and give it to someone else,
-  you no longer have it. Not that now you both have it, as in other languages,
-  that's kind of complex for the subconsciousness to model.
+I'd like to cover these in some future posts (not necessarily in this order):
 
-## Evaluating your solution
-
-You probably should evaluate your own solution before you present it. But you
-can also evaluate solutions of others.
-
-Some questions that need answering (and the answers may be included in the
-proposal):
-
-* Cost vs. benefit study: Every solution costs something, being it time to
-  implement it, users learning how to use that, downsides somewhere else… and
-  the medicine should not be worse than the sickness. You may want to scale down
-  the solution (even at the cost of part of the problem ‒ the 80:20 principle).
-  You may want to pick a less intrusive way (in case of language design, a
-  keyword is more costly than a function in standard library, which in turn is
-  more costly than function in a 3rd-party library).
-* Does it actually solve the problem? This is where your problem statement
-  shines.
-* Is it possible to do it incrementally? Both to have parts of the benefits
-  ready sooner and to have early feedback and be able to change the solution
-  based on that if need be.
-* Is it possible to perform some experiments without actually committing to it?
-  Maybe by doing it in a less costly way with some downsides first.  Or, is
-  there a way back if something doesn't work? Is there a plan B?
-
-## Presentation and discussions
-
-If you don't work alone, you have to present it and discuss it with others.
-
-* Try to avoid misunderstandings.
-  - Be clear about your intentions.
-  - Distinguish between what you are sure of and what you only feel or think.
-    Distinguish between phases of completeness of your proposal ‒ is it just a
-    beer-brainstorming idea or did you go all the way to make a formal proof of
-    correctness and implemented a proof of concept?
-* Assume good intentions ‒ most people don't try to be mean on purpose. They
-  just have different views. Understand them. Make them understand you.
-* Try to avoid emotions and attachment:
-  - Make sure not to be hostile to people and avoid insults. As the British vs.
-    American English shows, there's a huge difference in presentation. While
-    equivalent in the meaning, I'm much more likely to comply with „Excuse me
-    sir, but you probably should not be here.“ than „Get off my property!!“ and
-    I'm much more likely to be polite back to the first. I believe it is much
-    less unpleasant to both sides.
-  - Try to bring the whole team into the solution, make it „ours“ instead of
-    „mine“.
-  - Don't worry about improvements to your solution. It is making it better.
-* Try to re-read it few times before presenting it (if it's in a written form).
-  Let some time pass between the reads and see if it still sounds like you think
-  it should.
-* Try not to get offended. It's more likely a misunderstanding than an
-  intention. The other side most likely just didn't pay enough attention to what
-  they were writing or one of the sides doesn't communicate in the native
-  language and there's a cultural difference. If you don't manage and get
-  offended, try to cool down a bit first ‒ explain you don't like being
-  offended, but don't return the offense.
+* How a good solution looks like.
+* How to come up with one.
+* How one might evaluate the quality of a solution.
+* Something about discussing the solutions and proposals in somewhat effective
+  way.
