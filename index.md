@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Making Arc more atomic](_posts/2018-06-24-arc-more-atomic.md)
 * [Design Guideline: Problem Statement](_posts/2018-06-10-design-guideline-problem-statement.md)
 * [Performance experiments with matrix multiplication](_posts/2018-05-12-Mat-perf.md)
 * [The dark side of ergonomics](_posts/2018-04-08-Dark-side-of-ergonomics.md)
