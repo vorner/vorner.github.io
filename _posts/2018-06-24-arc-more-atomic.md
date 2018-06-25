@@ -208,11 +208,17 @@ bit if multiple loads happen at the same time, though, because the CPUs need to
 fight over the same memory location (there's no lock-contention on the program
 level, but there's contention on the HW level).
 
-In the jargon, `load` is lock-free and wait-free. The `swap` (and therefore
+In the jargon, `load` is lock-free and wait-free. ~~The `swap` (and therefore
 `store`) is only lock-free, but that still allows it to be used inside a signal
 handler (however, signal handlers have memory allocation and deallocation
 forbidden too, so making an actual use of that is hard) and in
-massively-parallel workloads.
+massively-parallel workloads.~~
+
+Edit: It turns out `swap` is *not* lock-free and can't be safely put inside a
+signal handler (without some special care) ‒ `swap`s won't block each other, but
+a interrupted `load` can block it. I'll see if something can be done about that,
+but at least `load` can still go into the signal handler (which is what my
+signal use case is about).
 
 ## Doing the true RCU
 
