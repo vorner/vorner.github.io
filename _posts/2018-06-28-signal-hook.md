@@ -5,7 +5,7 @@ all the valuable feedback ‒ I didn't have the time to act on it yet, but I
 will), this talks about Unix signal handling.
 
 Long story short, I wasn't happy about the signal handling story in Rust and
-this is my attempt at improving it.
+this is my attempt at improving it with the [signal-hook] library.
 
 ## What is a signal?
 
@@ -100,20 +100,20 @@ ways to get any info out of a signal handler ‒ it doesn't have a return value)
 We will access it from different threads, possibly concurrently, so we need to
 synchronize it somehow. But remember, we don't have mutexes! Channels probably
 have a locks and an allocation inside them too (the
-[`std`](https://github.com/rust-lang/rust/blob/acf50b79beb5909c16861cc7c91e8226b7f78272/src/libstd/sync/mpsc/mod.rs#L830) channels,
-[`chan`](https://github.com/BurntSushi/chan/blob/8093a9cfa7d614a320a0f6ada48ca6b6eb298d4b/src/notifier.rs#L42) and
-[`crossbeam-channel`](https://github.com/crossbeam-rs/crossbeam-channel/blob/2317e6441afceb65c0f515d087603e8b24a8a637/src/internal/waker.rs#L209) do)
+[std](https://github.com/rust-lang/rust/blob/acf50b79beb5909c16861cc7c91e8226b7f78272/src/libstd/sync/mpsc/mod.rs#L830) channels,
+[chan](https://github.com/BurntSushi/chan/blob/8093a9cfa7d614a320a0f6ada48ca6b6eb298d4b/src/notifier.rs#L42) and
+[crossbeam-channel](https://github.com/crossbeam-rs/crossbeam-channel/blob/2317e6441afceb65c0f515d087603e8b24a8a637/src/internal/waker.rs#L209) do)
 
 ### The interaction with Rust is not defined.
 
 The POSIX standard talks only about the C library primitives. So we either have
-to use things from the [`libc`] crate only, or guess and audit the whole code of
+to use things from the [libc] crate only, or guess and audit the whole code of
 whatever we use (and hope nobody adds an allocation in the next version ‒ adding
 an allocation is certainly not considered a breaking change by most authors).
 But, well, in the light of the above, we want to do as little of work inside the
 handler as possible anyway.
 
-While it is well defined to call a [`longjmp`] out of a signal handler, there's
+While it is well defined to call a [longjmp] out of a signal handler, there's
 no such mechanism in Rust. Panicking is somewhat similar, but that would
 definitely be a panic across FFI boundary and that one is UB.
 
@@ -132,7 +132,7 @@ If you write a daemon, you are expected to shut down correctly and gracefully on
 several signals. You should reload your configuration on `SIGHUP` and reopen log
 files.
 
-If you start a subprocess ([`fork`]) and the subprocess ends, you'll get a
+If you start a subprocess ([fork]) and the subprocess ends, you'll get a
 `SIGCHLD`. You are expected to pick up that corpse of the process or it becomes
 a zombie. Unix is a rough world ‒ daemons, zombies, we recently acquired
 spectres too.
@@ -153,7 +153,7 @@ signal handler and then doing the needed work outside.
   that high… and there's a lot of software written in that way. But this is the
   wrong approach.
 * Mask the signals in the whole program and use some mechanism to pull the
-  pending signals out ([`sigwait`], [`signalfd`]). The first one needs a
+  pending signals out ([sigwait], [signalfd]). The first one needs a
   dedicated thread, the other one works well with some kind of IO event loop.
   But it is not applicable solution for a library, because the library has no
   way to mask signals in all the threads in an application (the application can
@@ -162,14 +162,14 @@ signal handler and then doing the needed work outside.
 * Make sure there's something happening often enough. Set a boolean flag in the
   signal handler and check it at each iteration. Rust doesn't seem to provide
   the C's `volatile sig_atomit_t`, but that one is for single-threaded programs
-  anyway. It has [`AtomicBool`], which provides strong enough guarantees. Not
+  anyway. It has [AtomicBool], which provides strong enough guarantees. Not
   all applications have this kind of periodic wakeup, though.
 * Similar thing as above, but with clever masking of signals and unmasking them
-  only as part of the IO waiting primitive ([`psellect`], [`epoll_pwait`]) ‒ the
+  only as part of the IO waiting primitive ([psellect], [epoll_pwait]) ‒ the
   signal sets the flag and the primitive fails with `EINTR` error code.
   Not super-easy to write without race conditions, but it can be done. But
   we probably want to have several layers of abstraction between that and our
-  application ([`mio`], [`tokio`]) and we don't have access to that.
+  application ([mio], [tokio]) and we don't have access to that.
 * Implement a [self-pipe trick] ‒ have a pipe (or socket-pair or whatever) with
   both ends in the same program. Write one byte into it (non-blocking, in case
   it is full at the moment) in the signal handler. The read end can wake up
@@ -180,10 +180,10 @@ signal handler and then doing the needed work outside.
 
 ## Existing libraries
 
-I didn't find much. There's [`tokio-signal`], but it is specific to tokio.
+I didn't find much. There's [tokio-signal], but it is specific to tokio.
 Others are either subtly broken (use allocation, mutexes), are very specific to
 a single use case, don't allow sharing the signals, etc. In other words, I
-didn't find anything I'd like to use except for [`tokio-signal`]. But I often
+didn't find anything I'd like to use except for [tokio-signal]. But I often
 don't use tokio and having it just to handle the signals felt heavy-weight.
 
 I didn't like writing the same boiler-platy unsafe code again and again, even
@@ -206,7 +206,7 @@ I wanted to solve three problems, once and for all:
 
 ## The implementation
 
-There's one global [`ArcSwap`] with configuration at the very core of the
+There's one global [ArcSwap] with configuration at the very core of the
 library. The configuration contains list of hooks to be called for each
 different signal. The `load` method of `ArcSwap` is lock-free and doesn't use
 any allocation, so it is safe to use from within a signal handler. Provided all
@@ -230,7 +230,7 @@ into.
 
 There's also a higher-level API for signals. The structure implements
 `Iterator` (actually, three different ones, depending on the exact needs). I'd
-like to add support for [`mio`] and [`futures`] as well some time soon (I'll see
+like to add support for [mio] and [futures] as well some time soon (I'll see
 what is possible there without binding to specific runtime).
 
 If you know of an useful pattern, you can either suggest it, send a PR to
@@ -238,7 +238,7 @@ the library or even implement a separate crate that just uses the multiplexer
 (you save yourself the juggling with signal setup in addition to being able to
 share the signal with others).
 
-As an example, there's the other crate I wrote, [`reopen`], which helps with
+As an example, there's the other crate I wrote, [reopen], which helps with
 reopening the log files on `SIGHUP`. Well, it provides more general interface,
 so other things can be done too, but this is what I had in mind when writing it.
 The library offers a convenient method to hook into a signal if compiled on
@@ -257,24 +257,24 @@ I want to thank everyone for providing feedback and possibly help. But
 specifically, I want to give thanks to two people. Martin Mareš, who introduced
 me to the land of Unix and C and explained all the pitfalls there (that's one of
 the bearded Unix Gurus I know) and Alex Crichton, who had done a very similar
-thing when I sent a pull request to [`tokio-signal`] about a year ago.
+thing when I sent a pull request to [tokio-signal] about a year ago.
 Actually, a lot of inspiration and bits of the code of this library comes
 directly from there.
 
-[`signal-hook`]: https://crates.io/crates/signal-hook.
+[signal-hook]: https://crates.io/crates/signal-hook.
 [async-signal-safe]: http://www.man7.org/linux/man-pages/man7/signal-safety.7.html
 [real programmers]: http://www.jargon.net/jargonfile/t/TheStoryofMel.html
-[`tokio-signal`]: https://crates.io/crates/tokio-signal
-[`libc`]: https://crates.io/crates/libc
-[`sigwait`]: http://man7.org/linux/man-pages/man3/sigwait.3.html
-[`signalfd`]: http://man7.org/linux/man-pages/man2/signalfd.2.html
-[`psellect`]: https://linux.die.net/man/2/pselect
-[`epoll_pwait`]: http://man7.org/linux/man-pages/man2/epoll_wait.2.html
+[tokio-signal]: https://crates.io/crates/tokio-signal
+[libc]: https://crates.io/crates/libc
+[sigwait]: http://man7.org/linux/man-pages/man3/sigwait.3.html
+[signalfd]: http://man7.org/linux/man-pages/man2/signalfd.2.html
+[psellect]: https://linux.die.net/man/2/pselect
+[epoll_pwait]: http://man7.org/linux/man-pages/man2/epoll_wait.2.html
 [self-pipe trick]: https://cr.yp.to/docs/selfpipe.html
-[`mio`]: https://crates.io/crates/mio
-[`futures`]: https://crates.io/crates/futures
-[`AtomicBool`]: https://doc.rust-lang.org/std/sync/atomic/struct.AtomicBool.html
-[`tokio`]: https://crates.io/crates/tokio
-[`longjmp`]: http://man7.org/linux/man-pages/man3/longjmp.3.html
-[`fork`]: http://man7.org/linux/man-pages/man2/fork.2.html
-[`reopen`]: https://crates.io/crates/reopen
+[mio]: https://crates.io/crates/mio
+[futures]: https://crates.io/crates/futures
+[AtomicBool]: https://doc.rust-lang.org/std/sync/atomic/struct.AtomicBool.html
+[tokio]: https://crates.io/crates/tokio
+[longjmp]: http://man7.org/linux/man-pages/man3/longjmp.3.html
+[fork]: http://man7.org/linux/man-pages/man2/fork.2.html
+[reopen]: https://crates.io/crates/reopen
