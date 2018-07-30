@@ -261,7 +261,7 @@ thing when I sent a pull request to [tokio-signal] about a year ago.
 Actually, a lot of inspiration and bits of the code of this library comes
 directly from there.
 
-[signal-hook]: https://crates.io/crates/signal-hook.
+[signal-hook]: https://crates.io/crates/signal-hook
 [async-signal-safe]: http://www.man7.org/linux/man-pages/man7/signal-safety.7.html
 [real programmers]: http://www.jargon.net/jargonfile/t/TheStoryofMel.html
 [tokio-signal]: https://crates.io/crates/tokio-signal
