@@ -278,3 +278,4 @@ directly from there.
 [longjmp]: http://man7.org/linux/man-pages/man3/longjmp.3.html
 [fork]: http://man7.org/linux/man-pages/man2/fork.2.html
 [reopen]: https://crates.io/crates/reopen
+[ArcSwap]: https://crates.io/crates/arc-swap
