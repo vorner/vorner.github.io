@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Object models and identities](_posts/2018-08-12-Object-models-and-identities.md)
 * [Don't Panic](_posts/2018-07-22-dont_panic.md)
 * [The Signal Hook](_posts/2018-06-28-signal-hook.md)
 * [Making Arc more atomic](_posts/2018-06-24-arc-more-atomic.md)
