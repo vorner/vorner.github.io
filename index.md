@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Announcing Spirit](_posts/2018-09-03-Announcing-Spirit.md)
 * [Object models and identities](_posts/2018-08-12-Object-models-and-identities.md)
 * [Don't Panic](_posts/2018-07-22-dont_panic.md)
 * [The Signal Hook](_posts/2018-06-28-signal-hook.md)
