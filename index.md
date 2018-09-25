@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Directly to production](_posts/2018-09-25-Directly-To-Production.md)
 * [Announcing Spirit](_posts/2018-09-03-Announcing-Spirit.md)
 * [Object models and identities](_posts/2018-08-12-Object-models-and-identities.md)
 * [Don't Panic](_posts/2018-07-22-dont_panic.md)
