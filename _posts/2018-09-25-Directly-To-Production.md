@@ -166,7 +166,7 @@ exercise for the reader to reverse-engineer them, they are quite simple.
 Anyway, it might be less work to spend the time writing your own instead of
 trying to integrate this into your own work flow and window manager.
 
-[matrices]: 2018-05-12-Mat-perf.md
+[matrices]: /2018/05/12/Mat-perf.html
 [corona]: https://crates.io/crates/corona
 [`AsRawFd`]: https://doc.rust-lang.org/std/os/unix/io/trait.AsRawFd.html
 [`Evented`]: https://docs.rs/mio/0.6/mio/event/trait.Evented.html
