@@ -117,6 +117,7 @@ large enough to be significant, or if it was just a noise. Anyway, preserving
 critical information ‒ like a constant length of something ‒ across abstractions
 helps the compiler in doing its job.
 
+[Arc]: https://doc.rust-lang.org/std/sync/struct.Arc.html
 [arc-swap]: https://crates.io/crates/arc-swap
 [signal-hook]: https://crates.io/crates/signal-hook
 [LockStore]: https://github.com/vorner/arc-swap/blob/master/src/gen_lock.rs#L68
