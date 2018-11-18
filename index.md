@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Passerby Contributions](_posts/2018-11-18-passerby-contributions.md)
 * [Truly Zero Cost](_posts/2018-11-11-truly-zero-cost.md)
 * [Take 20](_posts/2018-10-21-Take-20.md)
 * [Directly to production](_posts/2018-09-25-Directly-To-Production.md)
