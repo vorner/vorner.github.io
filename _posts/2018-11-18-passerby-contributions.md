@@ -91,8 +91,10 @@ better than other code bases of that size, though, thanks to the other things.
 Second, Rust have relatively consistent conventions. Most things don't digress
 from the `std` style much. If you want to make life easier for contributors (and
 users of your API too), stick to it. There are even [style guidelines].
-Unfortunately, it seems to be abandoned and incomplete ‒ but the things in there
-are worth the read.
+~~Unfortunately, it seems to be abandoned and incomplete ‒ but the things in there
+are worth the read.~~
+
+Edit: There's a newer version of [style] and [API] guidelines.
 
 And finally, Rust encodes a lot of information into the code other languages
 have only in documentation. People say that the Rust ownership system is
@@ -162,3 +164,5 @@ You haven't chased me away. I just don't know how to stay at one project.
 [intercal]: https://en.wikipedia.org/wiki/INTERCAL#Syntax
 [rustc]: https://github.com/rust-lang/rust/
 [style guidelines]: https://doc.rust-lang.org/1.0.0/style/README.html
+[style]: https://github.com/rust-lang-nursery/fmt-rfcs/blob/master/guide/guide.md
+[API]: https://rust-lang-nursery.github.io/api-guidelines/about.html
