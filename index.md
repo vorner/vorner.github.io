@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [The Spirit tutorial](_posts/2018-12-09-Spirit-Tutorial.md)
 * [Passerby Contributions](_posts/2018-11-18-passerby-contributions.md)
 * [Truly Zero Cost](_posts/2018-11-11-truly-zero-cost.md)
 * [Take 20](_posts/2018-10-21-Take-20.md)
