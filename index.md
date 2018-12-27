@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Rust in 2019](_posts/2018-12-27-rust-2019.md)
 * [The Spirit tutorial](_posts/2018-12-09-Spirit-Tutorial.md)
 * [Passerby Contributions](_posts/2018-11-18-passerby-contributions.md)
 * [Truly Zero Cost](_posts/2018-11-11-truly-zero-cost.md)
