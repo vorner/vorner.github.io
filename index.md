@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Food model of lifetimes](_posts/2019-03-20-food-lifetimes.md)
 * [Rust Hacks](_posts/2019-02-03-hacks.md)
 * [Rust in 2019](_posts/2018-12-27-rust-2019.md)
 * [The Spirit tutorial](_posts/2018-12-09-Spirit-Tutorial.md)
