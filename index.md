@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [More tricks up in the ArcSwap's sleeve](_posts/2019-04-06-tricks-in-arc-swap.md)
 * [Food model of lifetimes](_posts/2019-03-20-food-lifetimes.md)
 * [Rust Hacks](_posts/2019-02-03-hacks.md)
 * [Rust in 2019](_posts/2018-12-27-rust-2019.md)
