@@ -89,7 +89,7 @@ reasoning about the problem much harder.
 Similarly, if someone comes with a requirement that the core should have
 exceptions around its behaviour that doesn't logically follow from the
 definition of the problem, they should *not* go inside. Like, even if it makes
-sense for your application to consider an disjunction of empty set of terms to
+sense for your application to consider a conjunction of empty set of terms to
 evaluate to false, it needs to be done outside of the logic core, because that
 just makes no sense in any sane logic.
 
