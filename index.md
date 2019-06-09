@@ -47,3 +47,6 @@ I decided not to use them for now, before I get around to doing something with
 them.
 
 This is here mostly for the technical stuff (like Rust).
+
+## Subscribe to RSS/Atom
+* [Feed](/feed.xml)

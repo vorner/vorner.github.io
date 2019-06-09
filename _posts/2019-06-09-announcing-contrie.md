@@ -1,8 +1,8 @@
 # Announcing the contrie ‒ concurrent maps and sets
 
-This is partly an [announcement][#whats-in-the-crate] of a new crate folks might
-find useful, partly a [call for participation and help][#help-wanted] and partly
-a [journal like story][#behind-the-scenes] how the crate came to being. Read on
+This is partly an [announcement](#whats-in-the-crate) of a new crate folks might
+find useful, partly a [call for participation and help](#help-wanted) and partly
+a [journal like story](#behind-the-scenes) how the crate came to being. Read on
 (or not) or skip to the parts that seem interesting to you.
 
 And I know, I'm bad at naming libraries, the name is silly.

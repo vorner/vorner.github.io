@@ -234,3 +234,4 @@ may come to save the day.
 [hyper]: https://hyper.rs
 [static-gc]: https://words.steveklabnik.com/borrow-checking-escape-analysis-and-the-generational-hypothesis
 [crates.io]: https://crates.io/
+[rayon]: https://docs.rs/rayon
