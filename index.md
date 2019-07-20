@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Is Rust C++ in disguise?](_posts/2019-07-20-cpp-in-disguise.md)
 * [Announcing contrie](_posts/2019-06-09-announcing-contrie.md)
 * [Rust in Avast](_posts/2019-05-19-rust-in-avast.md)
 * [The Nuclear Reactor design pattern](_posts/2019-04-21-nuclear-reactor-design-pattern.md)
