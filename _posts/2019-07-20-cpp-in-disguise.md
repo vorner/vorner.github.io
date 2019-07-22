@@ -121,6 +121,11 @@ And yes, both languages have the notion of undefined behaviour. While it is not
 possible to invoke it from Safe Rust (barring compiler bugs), this barrier is on
 the syntax level.
 
+Edit: As kindly pointed out by `etareduce`, the things that are considered UB
+are not completely the same ‒ signed integer overflow is UB in C++, while `bool`
+with value 2 is UB in Rust (though there's significant overlap, like accessing
+dangling pointers).
+
 ## Does it mean C++ and Rust are the same?
 
 Well, no, of course not :-). The syntax is obviously a big part of the story.
