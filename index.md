@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Runtime configuration reloading](_posts/2019-08-11-runtime-configuration-reloading.md)
 * [Is Rust C++ in disguise?](_posts/2019-07-20-cpp-in-disguise.md)
 * [Announcing contrie](_posts/2019-06-09-announcing-contrie.md)
 * [Rust in Avast](_posts/2019-05-19-rust-in-avast.md)
