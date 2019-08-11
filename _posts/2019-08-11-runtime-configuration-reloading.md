@@ -58,8 +58,8 @@ use signal_hook::iterator::Signals;
 
 load_initial_config()?;
 let signals = Signals::new(&[SIGHUP])?;
-thread::spawn(|| {
-    for signal in signals {
+thread::spawn(move || {
+    for signal in &signals {
         match signal {
             SIGHUP => {
                 if Err(e) = try_config_reload() {
