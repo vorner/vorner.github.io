@@ -228,6 +228,9 @@ impl AsyncWrite for Sink {
 }
 ```
 
+*Edit: It turn out this is already in master of [futures-preview], just not yet
+released.*
+
 However, when I run it again after the switch, the experiment was running for
 much longer than it should have. At that time the hardcoded time of one run was
 10 seconds (plus waiting for all the connections to finish, but the maxima were
