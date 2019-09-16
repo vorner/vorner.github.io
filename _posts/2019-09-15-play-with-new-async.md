@@ -243,7 +243,7 @@ accuracy is one millisecond and with rates over 1000 connections per second,
 this was not enough, it always slept for that one millisecond. This was an easy
 fix, just changing from adding one „pause“ between connections to the previous
 time, I count `n` pauses from the base time. This has the slight disadvantage
-of of „batching“ the connections, though ‒ if I run at a rate of 25k, it
+of „batching“ the connections, though ‒ if I run at a rate of 25k, it
 creates 25 connections and then sleeps a millisecond, because all 25 times
 round to the same millisecond.
 
