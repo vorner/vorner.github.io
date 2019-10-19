@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Migrate spirit to 0.4](_posts/2019-10-19-migrate-spirit-to-0-4.md)
 * [Fighting the Async fragmentation](_posts/2019-09-29-figthting-the-async-fragmentation.md)
 * [Playing with the new async](_posts/2019-09-15-play-with-new-async.md)
 * [Runtime configuration reloading](_posts/2019-08-11-runtime-configuration-reloading.md)
