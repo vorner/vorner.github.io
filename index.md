@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [`io_uring` mental experiments](_posts/2019-11-03-io-uring-mental-experiments.md)
 * [Migrate spirit to 0.4](_posts/2019-10-19-migrate-spirit-to-0-4.md)
 * [Fighting the Async fragmentation](_posts/2019-09-29-figthting-the-async-fragmentation.md)
 * [Playing with the new async](_posts/2019-09-15-play-with-new-async.md)
