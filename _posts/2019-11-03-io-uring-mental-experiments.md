@@ -119,6 +119,11 @@ if there was, it would probably work by sending another request „please cancel
 that other request“ through the queue and having to wait for confirmation to
 get out of the other queue.
 
+*Edit: As pointed out by glaebhoerl in the comments, `io_uring` now has a
+[support for cancellation](https://git.kernel.dk/cgit/liburing/commit/?id=8b68609d67f481c5df7bee990234bf87be382514).
+But the cancellation works as I expected, by sending the requests through the
+queues. Therefore this problem is not solved by it.*
+
 Why is this a problem? Because futures in Rust can be cancelled by dropping at
 any time. And even if we placed the waiting into the destructor, we can't really
 count on the destructor being run. After all, it's always possible to forget the
