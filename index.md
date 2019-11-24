@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Cleanup support in Signal Hook](_posts/2019-11-24-signal-hook-cleanup.md)
 * [Rust 2020](_posts/2019-11-12-rust-2020.md)
 * [`io_uring` mental experiments](_posts/2019-11-03-io-uring-mental-experiments.md)
 * [Migrate spirit to 0.4](_posts/2019-10-19-migrate-spirit-to-0-4.md)
