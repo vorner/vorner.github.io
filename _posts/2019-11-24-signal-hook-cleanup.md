@@ -89,7 +89,7 @@ much the same effect. Eventually the user would either use `kill -9` or reboot
 the computer, depending on their knowledge and experience.
 
 The trick here is to reset the signal handler to its OS default after receiving
-the first signal. The default for many signals, including `SIGTERM` (the one
+the first signal. The default for many signals, including `SIGINT` (the one
 coming from `CTRL+C`) is to terminate the program.
 
 If we do that than the stuck application will terminate (in non-graceful manner)
