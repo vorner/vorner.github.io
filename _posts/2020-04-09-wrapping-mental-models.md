@@ -45,8 +45,7 @@ So, this is the world in which Ok-wrapping works. In this world, functions are
 either *fallible* or *infallible*. A function that's infallible always
 guarantees to provide the asked for answer (let's pretend for today that there
 are no such things as panics nor infinite loops). In a mathematical terminology,
-the function is called *complete* (I hope; it's some time I've had my last math
-class and it was in Czech, not in English).
+the function is called *total*.
 
 A fallible function, however, can refuse to answer given some inputs. For some
 inputs you get an answer and for some you don't. Again, let's simplify and
@@ -103,7 +102,7 @@ If the function returns `Err(NotAuthorized)`, I wouldn't say it failed. I'd say
 it's doing its job very well indeed.
 
 Therefore, in the mental model I use, functions don't *fail*. There are no two
-separate categories of functions, all functions are *complete* in the
+separate categories of functions, all functions are *total* in the
 mathematical sense (still ignoring panics and infinite loops). The above
 `sqrt` function is defined on the whole axis of real numbers, producing either
 `Ok(f64)` or `Err(NegativeInput)`. Both the input set and the output set are
