@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Mental models around Ok wrapping](_posts/2020-04-09-wrapping-mental-models.md)
 * [My take on error handling](_posts/2020-04-05-error-handling.md)
 * [Spring cleanup](_posts/2020-03-01-spring-cleanup.md)
 * [Cleanup support in Signal Hook](_posts/2019-11-24-signal-hook-cleanup.md)
