@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Hyper traps](_posts/2020-04-13-hyper-traps.md)
 * [Mental models around Ok wrapping](_posts/2020-04-09-wrapping-mental-models.md)
 * [My take on error handling](_posts/2020-04-05-error-handling.md)
 * [Spring cleanup](_posts/2020-03-01-spring-cleanup.md)
