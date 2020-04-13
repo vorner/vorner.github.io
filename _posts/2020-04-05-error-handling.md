@@ -172,7 +172,7 @@ At that time, the [failure](https://crates.io/crates/failure) appeared and it
 was the perfect tool for the job, because:
 
 * It has its `failure-derive` sub-crate (enabled as a feature). This cuts down
-  on the boilerplate of leaf errors. Just throw in a few derive and annotation
+  on the boilerplate of leaf errors. Just throw in few derive and annotation
   attributes and you're done (I believe the procedural macros & derives is one
   of the big selling points of Rust, it saves *so much* work).
 * It has a `failure::Error` catch-all type that handles the open use case really
