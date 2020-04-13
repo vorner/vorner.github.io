@@ -20,7 +20,7 @@ all wrong :-).
 
 ## Language syntax
 
-I know this is somewhat contentious topic. But I'm a strong opponent of adding
+I know this is a somewhat contentious topic. But I'm a strong opponent of adding
 more specialized syntax for error handling specifically. Currently, error
 handling is done through the `Result` type. It's just a type, has some methods,
 implements some traits and it *composes well*. You can have
@@ -98,7 +98,7 @@ likes enums:
 match fallible_function() {
     Ok(result) => println!("Cool, we have a {}", result),
     Err(PossibleError::SyncError(e)) => error!("{}", e),
-    Err(OutOfCheeseError(mouse) => error("{}: Squeek!", mouse),
+    Err(OutOfCheeseError(mouse)) => error("{}: Squeek!", mouse),
     _ => error!("Unknown error"),
 }
 ```
@@ -132,7 +132,7 @@ if let Some(e) = error.downcast_ref::<CacheError>() {
 
 Note that this is not a problem of *just* error handling. Any time we get a
 `dyn Something`, it's kind of painful. I mean, one should generally not downcast
-things in perfect world, but one of the valid reasons to use Rust is because the
+things in a perfect world, but one of the valid reasons to use Rust is because the
 situation is not perfect and one *has to* do things that generally should *not*
 be done. So, why make it painful? With a very tentative syntax, this would make
 it much nicer:
@@ -165,14 +165,14 @@ So where does that stand?
 * Configuration is very much about user-provided callbacks. So we are in the
   open-errors area.
 * A lot of these errors are going to be shown to the end user, so they have to
-  be nice and *meaningfull*. That means having enough of context for the user to
+  be nice and *meaningful*. That means having enough of context for the user to
   figure out what went wrong.
 
 At that time, the [failure](https://crates.io/crates/failure) appeared and it
 was the perfect tool for the job, because:
 
 * It has its `failure-derive` sub-crate (enabled as a feature). This cuts down
-  on the boilerplate of leaf errors. Just throw in few derive and annotation
+  on the boilerplate of leaf errors. Just throw in a few derive and annotation
   attributes and you're done (I believe the procedural macros & derives is one
   of the big selling points of Rust, it saves *so much* work).
 * It has a `failure::Error` catch-all type that handles the open use case really
