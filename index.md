@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [SIMD by cheating](_posts/2020-06-21-simd-by-cheating.md)
 * [SIMD Library plans](_posts/2020-05-08-simd-library-plans.md)
 * [Hyper traps](_posts/2020-04-13-hyper-traps.md)
 * [Mental models around Ok wrapping](_posts/2020-04-09-wrapping-mental-models.md)
