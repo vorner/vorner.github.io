@@ -180,7 +180,7 @@ stable Rust so this thing is no longer needed. I'll be happy to deprecate the
 thing in favor of [`packed_simd`] or something like that eventually.
 
 [SIMD library plans]: {% post_url 2018-06-28-signal-hook %}
-[slipstream]: https://crates.io/crates/slipstream
+[`slipstream`]: https://crates.io/crates/slipstream
 [`core::arch`]: https://doc.rust-lang.org/nightly/core/arch/index.html
 [`target_feature`]: https://doc.rust-lang.org/nightly/core/arch/index.html#dynamic-cpu-feature-detection
 [source code]: https://doc.rust-lang.org/nightly/src/core/up/stdarch/crates/core_arch/src/x86/avx.rs.html#46-48
