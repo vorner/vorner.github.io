@@ -179,7 +179,7 @@ Actually, what I would really like is for [`packed_simd`] to become usable on
 stable Rust so this thing is no longer needed. I'll be happy to deprecate the
 thing in favor of [`packed_simd`] or something like that eventually.
 
-[SIMD library plans]: {% post_url 2018-06-28-signal-hook %}
+[SIMD library plans]: {% post_url 2020-05-08-simd-library-plans %}
 [`slipstream`]: https://crates.io/crates/slipstream
 [`core::arch`]: https://doc.rust-lang.org/nightly/core/arch/index.html
 [`target_feature`]: https://doc.rust-lang.org/nightly/core/arch/index.html#dynamic-cpu-feature-detection
