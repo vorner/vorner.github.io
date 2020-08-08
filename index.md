@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Announcing pyo3-log](_posts/2020-08-08-pyo3-log.md)
 * [Fights with downcasting](_posts/2020-08-02-fights-with-downcasting.md)
 * [SIMD by cheating](_posts/2020-06-21-simd-by-cheating.md)
 * [SIMD Library plans](_posts/2020-05-08-simd-library-plans.md)
