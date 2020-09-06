@@ -168,7 +168,7 @@ So let's have a data structure like this:
 
 ```rust
 struct Herd {
-    instances: Vec<Mutex<Bumpalo>>,
+    instances: Vec<Mutex<Bump>>,
 }
 ```
 
@@ -200,10 +200,10 @@ borrow checker rules).
 But there are ways to make sure some memory or references are not really
 *invalidated in practice*. If we put something into a [Box], we can move the box
 around as we like, the heap allocation will still stay at one place. We could
-guess that the `Bumpalo` thing contains something like a `Box` or `Vec` inside
+guess that the `Bump` thing contains something like a `Box` or `Vec` inside
 too, to hold the actual memory block, but let's not take any risks for now.
 
-So, if we take the `Box<Bumpalo>` thing and move it out of the thread or task
+So, if we take the `Box<Bump>` thing and move it out of the thread or task
 when it ends, all the stuff we allocated from it is technically still valid,
 only the borrow checker is too limited to see that. Therefore, if we sprinkle
 our algorithm with enough `unsafe`, it would be fine.
@@ -214,7 +214,7 @@ business logic or complex algorithms. I can do complex algorithms. I can do
 that really small bit of `unsafe` away.
 
 I have a `Herd` ([bumpalos][bumpalo] are herd animals, right?). This one can
-lend out an arena ‒ a small wrapper around the `Box<Bumpalo>`. Once that wrapper
+lend out an arena ‒ a small wrapper around the `Box<Bump>`. Once that wrapper
 gets dropped, the boxed bumpalo gets returned back to the herd. This way the
 memory block lives on, at the same address, so our references can be tied to the
 `Herd`, not to the lifetime of the small arenas.
@@ -244,8 +244,8 @@ test locked          ... bench: 318,254,662 ns/iter (+/- 13,216,651)
 test single_threaded ... bench:   3,492,762 ns/iter (+/- 236,510)
 ```
 
-The `alloc` ones are directly using `Box`. The `locked` one is `Mutex<Bumpalo>`,
-`single_threaded` is vanilla `Bumpalo` on one thread. The `herd` ones are the
+The `alloc` ones are directly using `Box`. The `locked` one is `Mutex<Bump>`,
+`single_threaded` is vanilla `Bump` on one thread. The `herd` ones are the
 thing described above (both in single and multiple threads).
 
 ## Other neat performance tricks
