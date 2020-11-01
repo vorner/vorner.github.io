@@ -100,4 +100,4 @@ to production, but if you can try it out and run tests, I'd be happy).
 [`signal-hook-registry`]: https://crates.io/crates/signal-hook-registry
 [`ArcSwapAny`]: https://docs.rs/arc-swap/1.0.0-rc1/arc_swap/struct.ArcSwapAny.html
 [lock-free]: https://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom
-[wait-free]: https://en.wikipedia.org/wiki/Non-blocking_algorithm#Lock-freedom
+[wait-free]: https://en.wikipedia.org/wiki/Non-blocking_algorithm#Wait-freedom
