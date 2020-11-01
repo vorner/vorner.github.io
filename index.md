@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Stabilizing `arc-swap`](_posts/2020-10-31-stabilizing-arc-swap.md)
 * [Throw-away code](_posts/2020-09-20-throw-away-code.md)
 * [If you want performance, cheat!](_posts/2020-09-03-performance-cheating.md)
 * [Announcing pyo3-log](_posts/2020-08-08-pyo3-log.md)
