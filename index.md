@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [40ms bug](_posts/2020-11-06-40-ms-bug.md)
 * [Stabilizing `arc-swap`](_posts/2020-10-31-stabilizing-arc-swap.md)
 * [Throw-away code](_posts/2020-09-20-throw-away-code.md)
 * [If you want performance, cheat!](_posts/2020-09-03-performance-cheating.md)
