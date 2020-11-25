@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [The long journey to signal-hook 0.2](_posts/2020-11-25-long-journey-to-signal-hook.md)
 * [40ms bug](_posts/2020-11-06-40-ms-bug.md)
 * [Stabilizing `arc-swap`](_posts/2020-10-31-stabilizing-arc-swap.md)
 * [Throw-away code](_posts/2020-09-20-throw-away-code.md)
