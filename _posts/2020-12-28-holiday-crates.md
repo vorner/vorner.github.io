@@ -135,7 +135,7 @@ If our string is maybe 30 bytes long, it'll allocate 30 bytes on the heap and
 will take up 24 bytes inside that `Vec` (we assume we are on a 64bit
 architecture). That's 54 bytes (and some allocator overhead). That also assumes
 there's no unused capacity ready for the string to grow, but we can always call
-`.shring_to_fit` before putting it together with the few million other strings
+`.shrink_to_fit` before putting it together with the few million other strings
 we already keep around.
 
 Let's say we want to save some space. What can we do?
