@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Saving some allocations](_posts/2021-01-31-saving-some-allocations.md)
 * [Dark side of POSIX APIs](_posts/2021-01-03-dark-side-of-posix-apis.md)
 * [Two holiday crates](_posts/2020-12-28-holiday-crates.md)
 * [The long journey to signal-hook 0.2](_posts/2020-11-25-long-journey-to-signal-hook.md)
