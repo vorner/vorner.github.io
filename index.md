@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Using const generics in slipstream](_posts/2021-03-28-const-generic-slipstreem.md)
 * [Saving some allocations](_posts/2021-01-31-saving-some-allocations.md)
 * [Dark side of POSIX APIs](_posts/2021-01-03-dark-side-of-posix-apis.md)
 * [Two holiday crates](_posts/2020-12-28-holiday-crates.md)
