@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Extracting tracing metrics to dipstick](_posts/2021-04-11-tracing-dipstick.md)
 * [Using const generics in slipstream](_posts/2021-03-28-const-generic-slipstreem.md)
 * [Saving some allocations](_posts/2021-01-31-saving-some-allocations.md)
 * [Dark side of POSIX APIs](_posts/2021-01-03-dark-side-of-posix-apis.md)
