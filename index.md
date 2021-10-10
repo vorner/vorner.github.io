@@ -1,5 +1,6 @@
 # Vorner's random stuff
 
+* [Testing with spirit](_posts/2021-10-10-testing-with-spirit.md)
 * [Extracting tracing metrics to dipstick](_posts/2021-04-11-tracing-dipstick.md)
 * [Using const generics in slipstream](_posts/2021-03-28-const-generic-slipstreem.md)
 * [Saving some allocations](_posts/2021-01-31-saving-some-allocations.md)
