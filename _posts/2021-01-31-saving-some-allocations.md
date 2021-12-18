@@ -275,6 +275,7 @@ could help when used right. But there are also situations where it could hurt.
 [`Buf`]: https://docs.rs/bytes/1.*/bytes/trait.Buf.html
 [aggregate]: https://docs.rs/hyper/0.14.*/hyper/body/fn.aggregate.html
 [bytes-utils]: https://docs.rs/bytes-utils/
+[`bytes-utils`]: https://docs.rs/bytes-utils/
 [`SegmentedSlice`]: https://docs.rs/bytes-utils/0.1.*/bytes_utils/struct.SegmentedSlice.html
 [`SmallVec`]: https://docs.rs/smallvec/1.*/smallvec/struct.SmallVec.html
 [`copy_to_bytes`]: https://docs.rs/bytes/1.*/bytes/trait.Buf.html#method.copy_to_bytes
@@ -287,3 +288,4 @@ could help when used right. But there are also situations where it could hurt.
 [`merge`]: https://docs.rs/prost/0.7.*/prost/trait.Message.html#method.merge
 [`lines`]: https://doc.rust-lang.org/std/primitive.str.html#method.lines
 [`lines_bytes`]: https://docs.rs/bytes-utils/0.1.*/bytes_utils/string/struct.StrInner.html#method.lines_bytes
+[`Str`]: https://docs.rs/bytes-utils/latest/bytes_utils/string/type.Str.html
