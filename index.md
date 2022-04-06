@@ -12,7 +12,7 @@
 If you want more details, I have:
 
 * [A landing page for recruiters](landing-page.md)
-* [My CV (probably outdated)](https://vorner.cz/downloads/cv.pdf)
+* [My CV (probably outdated)](https://vorner.cz/download/cv.pdf)
 
 ## Rust
 
