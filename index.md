@@ -1,5 +1,21 @@
 # Vorner's random stuff
 
+## About me
+
+* A programmer (sometimes a computer magician, working with all colours of
+  magic, including black).
+* A climber. Maybe I'll write a post comparing Rust to climbing one day.
+* I suffer from chronic lack of free time.
+* Huge fan of the „Ha ha only serious“ attitude.
+* And yes, self-appointed member of the Rust Evangelism Strike Force.
+
+If you want more details, I have:
+
+* [A landing page for recruiters](landing-page.md)
+* [My CV (probably outdated)](https://vorner.cz/downloads/cv.pdf)
+
+## Rust
+
 * [Testing with spirit](_posts/2021-10-10-testing-with-spirit.md)
 * [Extracting tracing metrics to dipstick](_posts/2021-04-11-tracing-dipstick.md)
 * [Using const generics in slipstream](_posts/2021-03-28-const-generic-slipstreem.md)
@@ -55,23 +71,13 @@
 * [About undefined behavior](undefined.md)
 * [Rust 2018](rust-2018.md)
 
-## About me
-
-* An average European, living in Prague.
-* A programmer (sometimes a computer magician, working with all colours of
-  magic, including black).
-* A climber. Maybe I'll write a post comparing Rust to climbing one day.
-* I suffer from chronic lack of free time.
-* Huge fan of the „Ha ha only serious“ attitude.
-* And yes, self-appointed member of the Rust Evangelism Strike Force.
-
 ## About the pages
 
-These were thrown together quite fast (see above to know why). I also do have my
-[personal web pages](https://vorner.cz/en), but they are really outdated and
-fell into disrepair. You can have a look, if you really like a retro design. So
-I decided not to use them for now, before I get around to doing something with
-them.
+These were thrown together quite fast (see above lack of time to know why). I
+also do have my [personal web pages](https://vorner.cz/en), but they are really
+outdated and fell into disrepair. You can have a look, if you really like a
+retro design. So I decided not to use them for now, before I get around to doing
+something with them.
 
 This is here mostly for the technical stuff (like Rust).
 
