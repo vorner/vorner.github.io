@@ -9,9 +9,15 @@
 * Huge fan of the „Ha ha only serious“ attitude.
 * And yes, self-appointed member of the Rust Evangelism Strike Force.
 
-If you want more details, I have:
+If you want to contact me, [write me an email](mailto:vorner@vorner.cz).
+
+## Professional info
+
+If you are coming from the "corporate" world and aren't simply looking for some
+bed-time programmer reading, here are few resources you might find useful.
 
 * [A landing page for recruiters](landing-page.md)
+* [Consulting and freelance services](services.md)
 * [My CV (probably outdated)](https://vorner.cz/download/cv.pdf)
 
 ## Rust
