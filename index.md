@@ -20,6 +20,10 @@ bed-time programmer reading, here are few resources you might find useful.
 * [Consulting and freelance services](services.md)
 * [My CV (probably outdated)](https://vorner.cz/download/cv.pdf)
 
+## EVs
+
+* [Choosing an EV](_posts/2022-05-06-choosing-ev.md)
+
 ## Rust
 
 * [Testing with spirit](_posts/2021-10-10-testing-with-spirit.md)
