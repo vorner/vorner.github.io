@@ -24,6 +24,7 @@ bed-time programmer reading, here are few resources you might find useful.
 
 * [Choosing an EV](_posts/2022-05-06-choosing-ev.md)
 * [Why we won't have fully autonomous cars soon](_posts/2022-05-29-no-autonomous-cars.md)
+* [Kona EV tips](_posts/2023-04-08-kona-ev-tips.md)
 
 ## Rust
 
