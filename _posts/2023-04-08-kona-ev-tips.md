@@ -11,6 +11,8 @@ anyone with this car (and probably similar cars) as kind of extra tips.
 I hope to write few more posts about it soon, probably something about its range
 / consumption / charging and something about general impressions.
 
+* [Consumption, range and charging]
+
 The car in question is 2022 Kona EV with the smaller battery (39.2kWh) and the
 lowest trim (called Smart in Czech republic), with the only addition of a heat
 pump and three-phase 11kW onboard charger. I have it in that bright blue color.
@@ -380,3 +382,4 @@ either case, I'd recommend going over driving habits to see how often you do a
 drive that's longer than some 150 or 200km in one go.
 
 [selection process]: {% post_url 2022-05-06-choosing-ev %}
+[Consumption, range and charging]: {% post_url 2023-04-08-kona-ev-tips %}
