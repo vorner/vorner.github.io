@@ -382,4 +382,4 @@ either case, I'd recommend going over driving habits to see how often you do a
 drive that's longer than some 150 or 200km in one go.
 
 [selection process]: {% post_url 2022-05-06-choosing-ev %}
-[Consumption, range and charging]: {% post_url 2023-04-08-kona-ev-tips %}
+[Consumption, range and charging]: {% post_url 2023-04-09-kona-range-charging %}
